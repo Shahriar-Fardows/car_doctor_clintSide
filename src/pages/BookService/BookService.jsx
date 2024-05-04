@@ -2,10 +2,12 @@ import { useContext } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../../providers/AuthProvider';
 
+
 const BookService = () => {
     const service = useLoaderData();
     const { title, _id, price, img } = service;
     const {user} = useContext(AuthContext);
+    // const axiosSecure = useAxiosSecure()
 
     const handleBookService = event =>{
         event.preventDefault();
@@ -25,6 +27,7 @@ const BookService = () => {
         }
 
         console.log(booking);
+
 
         fetch('http://localhost:5000/bookings', {
             method: 'POST', 
